@@ -10,7 +10,8 @@
 
     <li class="mb-3">
         <h3 class="d-inline-block"><a href="{{route('project.show', $project) }}">{{ucfirst($project->name)}}</a></h3>
-        <span><a href="{{route('project.delete', $project)}}">Delete</a></span>
+        <span><a href="{{route('project.delete', $project)}}">Delete</a></span> 
+        <span><a href="{{route('project.edit', $project)}}">Edit</a></span>
 
         <div>{{$project->release_date}}</div>
 

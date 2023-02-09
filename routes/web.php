@@ -23,11 +23,18 @@ Route::get('/', [MainController::class, 'home'])->name('home');
 Route::get('/project-show/{project}', [MainController::class, 'projectShow'])->name('project.show');
 
 // DELETE
-Route::get('/project-delete/{project}', [MainController::class, 'projectDelete'])->name('project.delete')->middleware(['auth', 'verified']);
+Route::get('/project/delete/{project}', [MainController::class, 'projectDelete'])->name('project.delete')->middleware(['auth', 'verified']);
 
 // CREATE/STORE
+Route::get('/project/create/{project}', [MainController::class, 'projectCreate'])->name('project.create')->middleware(['auth', 'verified']);
+
+// EDIT and UPDATE
+Route::get('/project/edit/{project}', [MainController::class, 'projectEdit'])->name('project.edit');
+Route::post('/project/update/{project}', [MainController::class, 'projectUpdate'])->name('project.update');
 
 Route::get('/private', [MainController::class, 'private'])->name('private')->middleware(['auth', 'verified']);
+
+
 
 
 Route::get('/dashboard', function () {

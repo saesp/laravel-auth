@@ -29,6 +29,28 @@ class MainController extends Controller
         return redirect()->route('home');
     }
 
+    // EDIT and UPDATE
+    public function projectEdit(Project $project)
+    {
+        return view('pages.project-edit', compact('project'));
+    }
+    public function projectUpdate(Request $request, Project $project)
+    {
+        $data = $request;
+
+        $project->name = $data['name'];
+        $project->description = $data['description'];
+        $project->languages = $data['languages'];
+        $project->main_image = $data['main_image'];
+        $project->repo_link = $data['repo_link'];
+        $project->view_link = $data['view_link'];
+        $project->completed = $data['completed'];
+        $project->release_date = $data['release_date'];
+
+        $project->save();
+
+        return redirect()->route('home');
+    }
 
     public function private ()
     {
