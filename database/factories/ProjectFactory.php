@@ -24,8 +24,7 @@ class ProjectFactory extends Factory
             'repo_link' => fake()->url(),
             'view_link' => fake()->boolean() ? fake()->url() : null,
             'completed' => fake()->boolean(),
-            'release_date' => fake()->boolean() ? fake()->dateTimeBetween('-5 months', 'now', null) : null,
-
+            'release_date' => fake()->dateTimeBetween('-5 months', 'now', null),
         ];
     }
 }

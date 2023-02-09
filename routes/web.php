@@ -18,7 +18,10 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'home'])->name('home');
 
+Route::get('/project-show/{project}', [MainController::class, 'projectShow'])->name('project.show');
+
 Route::get('/private', [MainController::class, 'private'])->name('private')->middleware(['auth', 'verified'])->name('private');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

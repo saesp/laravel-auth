@@ -8,6 +8,7 @@ use App\Models\Project;
 
 class MainController extends Controller
 {
+    // HOME
     public function home()
     {
         $projects = Project::all();
@@ -15,10 +16,15 @@ class MainController extends Controller
         return view('pages.home', compact('projects'));
     }
 
-    public function private ()
+    // SHOW
+    public function projectShow(Project $project)
     {
-
-        return view('pages.private');
+        return view('pages.project-show', compact('project'));
     }
 
+
+    public function private ()
+    {
+        return view('pages.private');
+    }
 }
