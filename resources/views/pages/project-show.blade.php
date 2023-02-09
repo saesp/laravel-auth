@@ -17,18 +17,18 @@
 
     <?php if($project->main_image != null){?>
     <li>
-        <i><strong>Image link:</strong></i> {{$project->main_image}}
+        <i><strong><a href="{{$project->main_image}}">Image link</a></strong></i>
     </li> <?php } else
         null 
     ?>
 
     <li>
-        <i><strong>Repo link:</strong></i> {{$project->repo_link}}
+        <i><strong><a href="{{$project->repo_link}}">Repo link</a></strong></i>
     </li>
 
     <?php if($project->view_link != null){?>
     <li>
-        <i><strong>View link:</strong></i> {{$project->view_link}}
+        <i><strong><a href="{{$project->view_link}}">View link</a></strong></i> 
     </li> <?php } else
         null 
     ?>
