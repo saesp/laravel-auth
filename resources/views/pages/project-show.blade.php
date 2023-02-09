@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<h2 class="mb-4">{{$project->name}}</h2>
+<h2 class="mb-4">{{ucfirst($project->name)}}</h2>
 
 <ul>
     <?php if($project->description != null){?>
@@ -34,7 +34,7 @@
     ?>
 
     <li>
-        <i><strong>Completed:</strong></i> {{$project->completed == 0 ? 'No' : 'Yes'}}
+        <i><strong>Completed:</strong></i> {{$project->completed == 0 ? 'no' : 'yes'}}
     </li>
 
     <li>

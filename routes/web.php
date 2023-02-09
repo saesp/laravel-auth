@@ -16,11 +16,18 @@ use App\Http\Controllers\MainController;
 |
 */
 
+// HOME/INDEX
 Route::get('/', [MainController::class, 'home'])->name('home');
 
+// SHOW
 Route::get('/project-show/{project}', [MainController::class, 'projectShow'])->name('project.show');
 
-Route::get('/private', [MainController::class, 'private'])->name('private')->middleware(['auth', 'verified'])->name('private');
+// DELETE
+Route::get('/project-delete/{project}', [MainController::class, 'projectDelete'])->name('project.delete')->middleware(['auth', 'verified']);
+
+// CREATE/STORE
+
+Route::get('/private', [MainController::class, 'private'])->name('private')->middleware(['auth', 'verified']);
 
 
 Route::get('/dashboard', function () {

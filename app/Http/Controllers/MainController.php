@@ -22,6 +22,13 @@ class MainController extends Controller
         return view('pages.project-show', compact('project'));
     }
 
+    // DELETE
+    public function projectDelete(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('home');
+    }
+
 
     public function private ()
     {
