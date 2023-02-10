@@ -36,7 +36,16 @@ class MainController extends Controller
     }
     public function projectStore(Request $request)
     {
-        $data = $request;
+        $data = $request -> validate([
+            'name' => 'required|string|max:64',
+            'description' => 'nullable|text|max:1500',
+            'languages' => 'nullable|string|max:256',
+            'main_image' => 'nullable|string',
+            'repo_link' => 'required|string',
+            'view_link' => 'nullable|string',
+            'completed' => 'required|string',
+            'release_date' => 'nullable|date|before:today',
+        ]);
 
         $project = new Project;
         
@@ -61,7 +70,17 @@ class MainController extends Controller
     }
     public function projectUpdate(Request $request, Project $project)
     {
-        $data = $request;
+        $data = $request -> validate([
+            'name' => 'required|string|max:64',
+            'description' => 'nullable|string|max:1500',
+            'languages' => 'nullable|string|max:256',
+            'main_image' => 'nullable|string',
+            'repo_link' => 'required|string',
+            'view_link' => 'nullable|string',
+            'completed' => 'required|string',
+            'release_date' => 'nullable|date|before:today',
+        ]);
+
 
         $project->name = $data['name'];
         $project->description = $data['description'];

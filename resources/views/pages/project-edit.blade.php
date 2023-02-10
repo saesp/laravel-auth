@@ -31,7 +31,12 @@
         
         <br>
         <label for="completed">Completed</label>
-        <input type="text" name="completed"  value="{{$project->completed == 0 ? 'no' : 'yes'}}">
+        <br>
+        <input type="radio" id="yes_radio" name="completed" value="yes">
+        <label for="yes_radio">Yes</label>
+        <br>
+        <input type="radio" id="no_radio" name="completed" value="no">
+        <label for="no_radio">No</label>
         
         <br>
         <label for="release_date">Release date</label>

@@ -34,7 +34,7 @@
     ?>
 
     <li>
-        <i><strong>Completed:</strong></i> {{$project->completed == 0 ? 'no' : 'yes'}}
+        <i><strong>Completed:</strong></i> {{$project->completed}}
     </li>
 
     <li>
