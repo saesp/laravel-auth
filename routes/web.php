@@ -26,16 +26,12 @@ Route::get('/project-show/{project}', [MainController::class, 'projectShow'])->n
 Route::get('/project/delete/{project}', [MainController::class, 'projectDelete'])->name('project.delete')->middleware(['auth', 'verified']);
 
 // CREATE and STORE
-Route::get('/project/create', [MainController::class, 'projectCreate'])->name('project.create');
+Route::get('/project/create', [MainController::class, 'projectCreate'])->name('project.create')->middleware(['auth', 'verified']);
 Route::post('/project/store', [MainController::class, 'projectStore'])->name('project.store');
 
 // EDIT and UPDATE
-Route::get('/project/edit/{project}', [MainController::class, 'projectEdit'])->name('project.edit');
+Route::get('/project/edit/{project}', [MainController::class, 'projectEdit'])->name('project.edit')->middleware(['auth', 'verified']);
 Route::post('/project/update/{project}', [MainController::class, 'projectUpdate'])->name('project.update');
-
-Route::get('/private', [MainController::class, 'private'])->name('private')->middleware(['auth', 'verified']);
-
-
 
 
 Route::get('/dashboard', function () {

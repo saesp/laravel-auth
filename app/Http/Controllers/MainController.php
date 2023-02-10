@@ -38,7 +38,7 @@ class MainController extends Controller
     {
         $data = $request -> validate([
             'name' => 'required|string|max:64',
-            'description' => 'nullable|text|max:1500',
+            'description' => 'nullable|string|max:1500',
             'languages' => 'nullable|string|max:256',
             'main_image' => 'nullable|string',
             'repo_link' => 'required|string',
