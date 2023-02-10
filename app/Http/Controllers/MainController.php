@@ -29,6 +29,31 @@ class MainController extends Controller
         return redirect()->route('home');
     }
 
+    // CREATE and STORE
+    public function projectCreate()
+    {
+        return view('pages.project-create');
+    }
+    public function projectStore(Request $request)
+    {
+        $data = $request;
+
+        $project = new Project;
+        
+        $project->name = $data['name'];
+        $project->description = $data['description'];
+        $project->languages = $data['languages'];
+        $project->main_image = $data['main_image'];
+        $project->repo_link = $data['repo_link'];
+        $project->view_link = $data['view_link'];
+        $project->completed = $data['completed'];
+        $project->release_date = $data['release_date'];
+
+        $project->save();
+
+        return redirect()->route('home');
+    }
+
     // EDIT and UPDATE
     public function projectEdit(Project $project)
     {

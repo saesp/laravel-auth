@@ -31,7 +31,7 @@
         
         <br>
         <label for="completed">Completed</label>
-        <input type="text" name="completed"  value="{{$project ->completed}}">
+        <input type="text" name="completed"  value="{{$project->completed == 0 ? 'no' : 'yes'}}">
         
         <br>
         <label for="release_date">Release date</label>

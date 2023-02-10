@@ -5,6 +5,8 @@
 
 <h2 class="mb-4">MY PROJECTS</h2>
 
+<a href="{{route('project.create')}}"><button>ADD NEW PROJECT</button></a>
+
 <ul>
     @foreach ($projects as $project)
 

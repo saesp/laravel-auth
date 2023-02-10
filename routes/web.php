@@ -25,8 +25,9 @@ Route::get('/project-show/{project}', [MainController::class, 'projectShow'])->n
 // DELETE
 Route::get('/project/delete/{project}', [MainController::class, 'projectDelete'])->name('project.delete')->middleware(['auth', 'verified']);
 
-// CREATE/STORE
-Route::get('/project/create/{project}', [MainController::class, 'projectCreate'])->name('project.create')->middleware(['auth', 'verified']);
+// CREATE and STORE
+Route::get('/project/create', [MainController::class, 'projectCreate'])->name('project.create');
+Route::post('/project/store', [MainController::class, 'projectStore'])->name('project.store');
 
 // EDIT and UPDATE
 Route::get('/project/edit/{project}', [MainController::class, 'projectEdit'])->name('project.edit');
