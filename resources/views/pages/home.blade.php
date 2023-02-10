@@ -6,17 +6,17 @@
 <h2 class="mb-4">MY PROJECTS</h2>
 
 @auth
-    <a href="{{route('project.create')}}"><button>ADD NEW PROJECT</button></a>
+    <a href="{{route('project.create')}}"><button class="mb-3">ADD NEW PROJECT</button></a>
 @endauth
 
-<ul>
+<ul class="list-unstyled">
     @foreach ($projects as $project)
 
     <li class="mb-3">
-        <h3 class="d-inline-block"><a href="{{route('project.show', $project) }}">{{ucfirst($project->name)}}</a></h3>
+        <h3 class="d-inline-block"><a class="text-decoration-none" href="{{route('project.show', $project) }}">{{ucfirst($project->name)}}</a></h3>
         @auth
-            <span><a href="{{route('project.delete', $project)}}">Delete</a></span> 
-            <span><a href="{{route('project.edit', $project)}}">Edit</a></span>
+            <span><a class="text-decoration-none m-2" href="{{route('project.delete', $project)}}">Delete</a></span> 
+            <span><a class="text-decoration-none" href="{{route('project.edit', $project)}}">Edit</a></span>
         @endauth
         
 

@@ -13,12 +13,12 @@
     @vite(['resources/js/app.js'])
 </head>
 <body>
-    <div class="content">
+    <div class="">
         <header>
             @include('components.header')
         </header>
     
-        <main pl-4>
+        <main class="container pt-4">
             @yield('content')
         </main>
     

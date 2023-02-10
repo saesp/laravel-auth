@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <form action="{{route('project.update', $project)}}" method="POST">
+    <form action="{{route('project.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <label for="name">Name</label>

@@ -3,24 +3,23 @@
 @section('content')
 <h2 class="mb-4">{{ucfirst($project->name)}}</h2>
 
-<ul>
+<?php if($project->main_image != null){?>
+    <img src="{{$project->main_image}}" width="300px">
+<?php } else
+    null 
+?>
+
+<ul class="list-unstyled">
     <?php if($project->description != null){?>
     <li>
         <i><strong>Description:</strong></i> {{$project->description}} 
     </li> <?php } else
         null 
     ?>
-
+    
     <li>
         <i><strong>Languages:</strong></i> {{$project->languages}}
     </li>
-
-    <?php if($project->main_image != null){?>
-    <li>
-        <i><strong><a href="{{$project->main_image}}">Image link</a></strong></i>
-    </li> <?php } else
-        null 
-    ?>
 
     <li>
         <i><strong><a href="{{$project->repo_link}}">Repo link</a></strong></i>

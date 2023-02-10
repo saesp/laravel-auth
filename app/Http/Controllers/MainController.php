@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Models\Project;
 
+use Illuminate\Support\Facades\Storage;
+class PostController extends Controller{
+    public function store(){
+        $img_path = Storage::put('uploads', $data['image']);
+    }
+}
+
 class MainController extends Controller
 {
     // HOME
@@ -94,10 +101,5 @@ class MainController extends Controller
         $project->save();
 
         return redirect()->route('home');
-    }
-
-    public function private ()
-    {
-        return view('pages.private');
     }
 }
