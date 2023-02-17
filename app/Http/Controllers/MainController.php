@@ -47,12 +47,15 @@ class MainController extends Controller
             'name' => 'required|string|max:64',
             'description' => 'nullable|string|max:1500',
             'languages' => 'nullable|string|max:256',
-            'main_image' => 'nullable|string',
+            'main_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'repo_link' => 'required|string',
             'view_link' => 'nullable|string',
             'completed' => 'required|string',
             'release_date' => 'nullable|date|before:today',
         ]);
+
+        $img_path = Storage :: put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
 
         $project = new Project;
         
@@ -81,13 +84,15 @@ class MainController extends Controller
             'name' => 'required|string|max:64',
             'description' => 'nullable|string|max:1500',
             'languages' => 'nullable|string|max:256',
-            'main_image' => 'nullable|string',
+            'main_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'repo_link' => 'required|string',
             'view_link' => 'nullable|string',
             'completed' => 'required|string',
             'release_date' => 'nullable|date|before:today',
         ]);
 
+        $img_path = Storage :: put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
 
         $project->name = $data['name'];
         $project->description = $data['description'];

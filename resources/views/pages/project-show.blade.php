@@ -3,11 +3,9 @@
 @section('content')
 <h2 class="mb-4">{{ucfirst($project->name)}}</h2>
 
-<?php if($project->main_image != null){?>
-    <img src="{{$project->main_image}}" width="300px">
-<?php } else
-    null 
-?>
+@if ($project->main_image != null)
+    <img src="{{ asset('storage/' . $project->main_image) }}" width="300px">
+@endif
 
 <ul class="list-unstyled">
     <?php if($project->description != null){?>

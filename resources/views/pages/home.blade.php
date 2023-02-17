@@ -5,6 +5,8 @@
 
 <h2 class="mb-4">MY PROJECTS</h2>
 
+{{-- <img src="{{ asset('storage/planets.jpeg') }}" width="300px"> --}}
+
 @auth
     <a href="{{route('project.create')}}"><button class="mb-3">ADD NEW PROJECT</button></a>
 @endauth

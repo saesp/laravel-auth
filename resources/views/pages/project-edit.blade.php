@@ -19,7 +19,7 @@
         
         <br>
         <label for="main_image">Image link</label>
-        <input type="url" name="main_image" value="{{$project ->main_image}}">
+        <input type="file" name="main_image" value="{{$project ->main_image}}">
         
         <br>
         <label for="repo_link">Repo link</label>

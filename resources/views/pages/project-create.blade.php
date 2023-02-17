@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <form action="{{route('project.store')}}" method="POST">
+    <form action="{{route('project.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <label for="name">Name</label>
@@ -18,8 +18,8 @@
         <input type="text" name="languages">
         
         <br>
-        <label for="main_image">Image link</label>
-        <input type="url" name="main_image">
+        <label for="main_image">Image</label>
+        <input type="file" name="main_image">
         
         <br>
         <label for="repo_link">Repo link</label>
