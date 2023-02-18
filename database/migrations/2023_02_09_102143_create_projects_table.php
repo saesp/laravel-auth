@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('main_image')->nullable(true);
             $table->string('repo_link')->unique();
             $table->string('view_link')->nullable(true);
-            $table->string('completed');
+            $table->boolean('completed')->default(0);
             $table->date('release_date')->nullable(true);
 
             $table->timestamps();

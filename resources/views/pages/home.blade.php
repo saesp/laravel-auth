@@ -29,7 +29,7 @@
                 <i><strong>Languages:</strong></i>  {{$project->languages}}
             </li>
             <li>
-                <i><strong>Completed:</strong></i> {{$project->completed}}
+                <i><strong>Completed:</strong></i> {{$project->completed == 0 ? 'No' : 'Yes'}}
             </li>
         </ul>
     </li>

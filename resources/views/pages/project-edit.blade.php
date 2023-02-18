@@ -19,7 +19,7 @@
         
         <br>
         <label for="main_image">Image link</label>
-        <input type="file" name="main_image" value="{{$project ->main_image}}">
+        <input type="file" name="main_image">
         
         <br>
         <label for="repo_link">Repo link</label>
@@ -32,10 +32,12 @@
         <br>
         <label for="completed">Completed</label>
         <br>
-        <input type="radio" id="yes_radio" name="completed" value="yes">
+        <input type="radio" id="yes_radio" name="completed" 
+            value="1" @if ($project->completed == 1) checked @endif>
         <label for="yes_radio">Yes</label>
         <br>
-        <input type="radio" id="no_radio" name="completed" value="no">
+        <input type="radio" id="no_radio" name="completed" 
+            value="0" @if ($project->completed == 0) checked @endif>
         <label for="no_radio">No</label>
         
         <br>

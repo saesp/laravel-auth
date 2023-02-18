@@ -32,10 +32,10 @@
         <br>
         <label for="completed">Completed</label>
         <br>
-        <input type="radio" id="yes_radio" name="completed" value="yes">
+        <input type="radio" id="yes_radio" name="completed" value="1">
         <label for="yes_radio">Yes</label>
         <br>
-        <input type="radio" id="no_radio" name="completed" value="no">
+        <input type="radio" id="no_radio" name="completed" value="0">
         <label for="no_radio">No</label>
 
         <br>
@@ -43,7 +43,7 @@
         <input type="date" name="release_date">
 
         <br>
-        <button type="submit">EDIT</button>
+        <button type="submit">CREATE</button>
 
     </form>
 

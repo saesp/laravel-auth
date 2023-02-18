@@ -54,23 +54,27 @@ class MainController extends Controller
             'release_date' => 'nullable|date|before:today',
         ]);
 
-        $img_path = Storage :: put('uploads', $data['main_image']);
+        $main_image = $request->file('main_image');
+    $img_path = Storage::put('uploads', $main_image);
+        // $img_path = Storage :: put('uploads', $data['main_image']);
         $data['main_image'] = $img_path;
 
-        $project = new Project;
+        // $project = new Project;
         
-        $project->name = $data['name'];
-        $project->description = $data['description'];
-        $project->languages = $data['languages'];
-        $project->main_image = $data['main_image'];
-        $project->repo_link = $data['repo_link'];
-        $project->view_link = $data['view_link'];
-        $project->completed = $data['completed'];
-        $project->release_date = $data['release_date'];
+        // $project->name = $data['name'];
+        // $project->description = $data['description'];
+        // $project->languages = $data['languages'];
+        // $project->main_image = $data['main_image'];
+        // $project->repo_link = $data['repo_link'];
+        // $project->view_link = $data['view_link'];
+        // $project->completed = $data['completed'];
+        // $project->release_date = $data['release_date'];
 
-        $project->save();
+        // $project->save();
 
-        return redirect()->route('home');
+        $project = Project::create($data);
+
+        return redirect()->route('home', $project);
     }
 
     // EDIT and UPDATE
@@ -85,7 +89,10 @@ class MainController extends Controller
             'description' => 'nullable|string|max:1500',
             'languages' => 'nullable|string|max:256',
             'main_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'repo_link' => 'required|string',
+
+            'repo_link' => 'required|string|unique:projects,repo_link,' . $project->id,
+            // "unique: ..." cioè unique a parte se stesso, quindi edit senza dover cambiare repo
+
             'view_link' => 'nullable|string',
             'completed' => 'required|string',
             'release_date' => 'nullable|date|before:today',
@@ -94,17 +101,19 @@ class MainController extends Controller
         $img_path = Storage :: put('uploads', $data['main_image']);
         $data['main_image'] = $img_path;
 
-        $project->name = $data['name'];
-        $project->description = $data['description'];
-        $project->languages = $data['languages'];
-        $project->main_image = $data['main_image'];
-        $project->repo_link = $data['repo_link'];
-        $project->view_link = $data['view_link'];
-        $project->completed = $data['completed'];
-        $project->release_date = $data['release_date'];
+        // $project->name = $data['name'];
+        // $project->description = $data['description'];
+        // $project->languages = $data['languages'];
+        // $project->main_image = $data['main_image'];
+        // $project->repo_link = $data['repo_link'];
+        // $project->view_link = $data['view_link'];
+        // $project->completed = $data['completed'];
+        // $project->release_date = $data['release_date'];
+        // $project->save();
 
+        $project -> update($data);
         $project->save();
 
-        return redirect()->route('home');
+        return redirect()->route('home', $project);
     }
 }

@@ -20,10 +20,11 @@ class ProjectFactory extends Factory
             'name' => fake()->words(random_int(2, 4), true),
             'description' => fake()->boolean() ? fake()->text() : null,
             'languages' => fake()->words(random_int(2, 8), true),
-            'main_image' => fake()->boolean() ? fake()->imageUrl() : null,
+            // 'main_image' => fake()->boolean() ? fake()->imageUrl() : null,
             'repo_link' => fake()->url(),
             'view_link' => fake()->boolean() ? fake()->url() : null,
-            'completed' => fake()->randomElement(['yes', 'no']),
+            'completed' => fake()->boolean(),
+            // 'completed' => fake()->randomElement(['yes', 'no']),
             'release_date' => fake()->dateTimeBetween('-5 months', 'now', null),
         ];
     }
